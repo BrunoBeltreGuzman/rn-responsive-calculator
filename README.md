@@ -26,7 +26,7 @@ Ensure you have the following tools installed:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/BrunoBeltreGuzman/rn-responsive-calculator.git
    cd rn-responsive-calculator
    ```
 
@@ -47,38 +47,6 @@ Ensure you have the following tools installed:
    - iOS: `npm run ios`
    - Web: `npm run web`
 
-## Project Structure
-
-```
-.
-├── assets              # Static assets (e.g., images, fonts)
-├── components          # Reusable UI components
-├── config              # Theme and style configurations
-├── store               # Zustand state management files
-├── App.tsx             # Entry point of the application
-├── package.json        # Project dependencies and scripts
-└── README.md           # Project documentation
-```
-
-## Dependencies
-
-### Runtime Dependencies
-
-- **[@expo/metro-runtime](https://github.com/expo/expo):** Metro bundler runtime support.
-- **[expo](https://expo.dev):** Framework for building cross-platform apps.
-- **[expo-screen-orientation](https://docs.expo.dev/versions/latest/sdk/screen-orientation/):** Manage screen orientation.
-- **[expo-status-bar](https://docs.expo.dev/versions/latest/sdk/status-bar/):** Status bar configuration.
-- **[react](https://reactjs.org):** Core library for building UI.
-- **[react-native](https://reactnative.dev):** Framework for building native apps.
-- **[react-native-web](https://necolas.github.io/react-native-web):** React Native components and APIs for the web.
-- **[zustand](https://github.com/pmndrs/zustand):** State management library.
-
-### Development Dependencies
-
-- **[@babel/core](https://babeljs.io):** JavaScript compiler.
-- **[@types/react](https://www.npmjs.com/package/@types/react):** TypeScript definitions for React.
-- **[typescript](https://www.typescriptlang.org):** Typed JavaScript.
-
 ## Theming
 
 The application supports light and dark themes. The themes are defined in the `config/Theme.ts` file:
@@ -96,13 +64,15 @@ const Theme = {
     formulaTextColor: "#FFFFFF",
   },
 };
-
-export default Theme;
 ```
 
 ## Screenshots
 
 Add screenshots or GIFs of your application here.
+
+![image](docs/image.png)
+![image](docs/image2.png)
+<video src='docs\video.mp4' width="100%"/>
 
 ## License
 
