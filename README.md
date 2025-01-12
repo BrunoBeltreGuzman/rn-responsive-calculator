@@ -72,7 +72,7 @@ Add screenshots or GIFs of your application here.
 
 ![image](docs/image.png)
 ![image](docs/image2.png)
-<video src='docs\video.mp4' width="100%"/>
+[Ver video](./docs/video.mp4)
 
 ## License
 
