@@ -72,7 +72,11 @@ Add screenshots or GIFs of your application here.
 
 ![image](docs/image.png)
 ![image](docs/image2.png)
-[Ver video](./docs/video.mp4)
+
+
+https://github.com/user-attachments/assets/eb4cbe11-90e7-42d3-8366-7de6def0563c
+
+
 
 ## License
 
