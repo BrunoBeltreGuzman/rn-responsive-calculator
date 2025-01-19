@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Text, View, Pressable, Dimensions } from "react-native";
-import { getStyles, styles } from "../config/styles";
+import { getStyles, styles } from "../config/Styles";
 import { useState, useEffect } from "react";
 import ThemeContext from "../store/ThemeContext";
-import Theme from "../config/Theme";
+import Theme from "../config/Colors";
 
 interface ButtonProps {
   label: string;

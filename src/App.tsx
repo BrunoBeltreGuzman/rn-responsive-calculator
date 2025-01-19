@@ -1,17 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Text, useColorScheme, View } from "react-native";
-import { styles } from "./config/styles";
+import { StatusBar } from "expo-status-bar";
+import ThemeContext from "./store/ThemeContext";
 import Button from "./components/Button";
 import ThemeToggle from "./components/ThemeToggle";
-import ThemeContext from "./store/ThemeContext";
-import Theme from "./config/Theme";
-import { StatusBar } from "expo-status-bar";
+import Colors from "./config/Colors";
+import { styles } from "./config/Styles";
+import Storage from "./util/Storage";
+import { Keys } from "./util/Keys";
+import { Theme } from "./config/Types";
 
 export default function App() {
-  const initColorTheme = useColorScheme() || "light";
+  const initColorTheme = useColorScheme() || Theme.light;
   const [theme, setTheme] = useState(initColorTheme);
   const [formula, setFormula] = useState("308 + 42");
   const [result, setResult] = useState(eval(formula));
+
+  useEffect(() => {
+    Storage.get(Keys.Theme).then((value) => {
+      if (value) {
+        setTheme(value as Theme);
+      } else {
+        Storage.put(Keys.Theme, initColorTheme);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    Storage.put(Keys.Theme, theme);
+  }, [theme]);
 
   useEffect(() => {
     if (formula == "") {
@@ -22,16 +39,18 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={theme}>
-      <StatusBar style={theme == "light" ? "dark" : "light"} />
+      <StatusBar style={theme == Theme.light ? Theme.dark : Theme.light} />
       <View
         style={[
           styles.container,
-          { backgroundColor: Theme[theme].screenBackgroundColor },
+          { backgroundColor: Colors[theme].screenBackgroundColor },
         ]}
       >
         <View style={styles.header}>
           <ThemeToggle
-            toggle={() => setTheme(theme === "light" ? "dark" : "light")}
+            toggle={() =>
+              setTheme(theme === Theme.light ? Theme.dark : Theme.light)
+            }
           />
         </View>
         <View style={styles.main}>
@@ -39,7 +58,7 @@ export default function App() {
             <Text
               style={[
                 styles.formulaText,
-                { color: Theme[theme].formulaTextColor },
+                { color: Colors[theme].formulaTextColor },
                 { fontSize: result != "" && result != "0" ? 30 : 60 },
               ]}
             >
@@ -48,7 +67,7 @@ export default function App() {
             <Text
               style={[
                 styles.resultText,
-                { color: Theme[theme].formulaTextColor },
+                { color: Colors[theme].formulaTextColor },
                 { display: result != "" && result != "0" ? "flex" : "none" },
               ]}
             >
@@ -58,7 +77,7 @@ export default function App() {
           <View
             style={[
               styles.buttoms,
-              { backgroundColor: Theme[theme].buttonsBackgroundColor },
+              { backgroundColor: Colors[theme].buttonsBackgroundColor },
             ]}
           >
             <View style={styles.row}>

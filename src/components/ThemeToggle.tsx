@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet, Pressable } from "react-native";
 import ThemeContext from "../store/ThemeContext";
-import Theme from "../config/Theme";
+import Theme from "../config/Colors";
 
 interface ThemeToggleProps {
   toggle: () => void;
